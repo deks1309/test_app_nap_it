@@ -1,110 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.home.HomeActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <com.google.android.material.appbar.AppBarLayout
-        style="@style/AppTheme.AppBarOverlay"
+    <data class="HomeBinding">
+
+        <variable
+            name="vm"
+            type="com.test.test_app.ui.home.HomeViewModel" />
+
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        tools:context=".ui.home.HomeActivity">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/tb_home_toolbar"
+        <com.google.android.material.appbar.AppBarLayout
+            style="@style/AppTheme.AppBarOverlay"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            app:contentInsetStart="0dp"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
+            android:layout_height="wrap_content">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/tb_home_toolbar"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <EditText
-                    android:id="@+id/editText"
-                    style="@style/AppTheme.EditText.ToolbarSearch"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="8dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/imageButton"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0"
-                    tools:text="Поиск" />
-
-                <ImageButton
-                    android:id="@+id/imageButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/ic_info_24px"
-                    android:backgroundTint="#588ae9"
-                    app:layout_constraintBottom_toBottomOf="@+id/editText"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/editText" />
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                app:contentInsetStart="0dp"
+                app:popupTheme="@style/AppTheme.PopupOverlay">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/imageButton"
-                    app:layout_constraintStart_toStartOf="@+id/editText"
-                    app:layout_constraintTop_toBottomOf="@id/editText">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-                    <ToggleButton
-                        android:id="@+id/tgb_home_top10"
-                        style="@style/AppTheme.ToggleButton"
-                        android:layout_width="wrap_content"
+                    <EditText
+                        android:id="@+id/et_home_toolbar_search"
+                        style="@style/AppTheme.EditText.ToolbarSearch"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:checked="true"
-                        android:textOff="@string/top10"
-                        android:textOn="string/top10"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:hint="@string/search"
                         app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/ibtn_home_toolbar_info"
+                        app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0"
+                        tools:text="Поиск">
 
-                    <ToggleButton
-                        style="@style/AppTheme.ToggleButton"
+                        <requestFocus />
+                    </EditText>
+
+                    <ImageButton
+                        android:id="@+id/ibtn_home_toolbar_info"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textOff="@string/shops"
-                        android:textOn="@string/shops"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/tgb_home_top10"
-                        app:layout_constraintStart_toEndOf="@+id/tgb_home_goods"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <ToggleButton
-                        android:id="@+id/tgb_home_goods"
-                        style="@style/AppTheme.ToggleButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textOff="@string/goods"
-                        android:textOn="@string/goods"
-                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/ic_info_24px"
+                        android:backgroundTint="#588ae9"
+                        android:contentDescription="@null"
+                        android:onClick="@{vm.onInfoButtonClickListener}"
+                        app:layout_constraintBottom_toBottomOf="@+id/et_home_toolbar_search"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="@+id/et_home_toolbar_search" />
+
+                    <RadioGroup
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:divider="@drawable/divider_radio_group"
+                        android:orientation="horizontal"
+                        android:showDividers="middle"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/ibtn_home_toolbar_info"
+                        app:layout_constraintStart_toStartOf="@+id/et_home_toolbar_search"
+                        app:layout_constraintTop_toBottomOf="@+id/et_home_toolbar_search">
+
+                        <RadioButton
+                            style="@style/AppTheme.ToggleButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:checked="@={vm.checkedTop10}"
+                            android:text="@string/top10" />
+
+                        <RadioButton
+                            style="@style/AppTheme.ToggleButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:checked="@={vm.checkedShops}"
+                            android:text="@string/shops" />
+
+                        <RadioButton
+                            style="@style/AppTheme.ToggleButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:checked="@={vm.checkedGoods}"
+                            android:text="@string/goods" />
+                    </RadioGroup>
+
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.appcompat.widget.Toolbar>
+            </androidx.appcompat.widget.Toolbar>
 
-    </com.google.android.material.appbar.AppBarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
 
-    <FrameLayout
-        android:id="@+id/fl_single_fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
-</LinearLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</layout>
