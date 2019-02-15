@@ -8,4 +8,5 @@
     <color name="textColorToggle">#588ae9</color>
 
     <color name="colorWhite">#fff</color>
+    <color name="colorTransparentWhite">#ccffffff</color>
 </resources>
