@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data class="CarouselItemBinding">
 
@@ -15,7 +16,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@android:color/transparent"
-        bind:cardPreventCornerOverlap="false">
+        app:cardPreventCornerOverlap="false"
+        app:cardCornerRadius="10dp">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -39,14 +41,13 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:textSize="14sp"
+                    android:textAppearance="@style/AppTheme.TextAppearance.TitleText"
                     android:text="@{vm.title}"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="12sp"
+                    android:textAppearance="@style/AppTheme.TextAppearance.NormalText"
                     android:text="@{vm.description}"/>
             </LinearLayout>
         </FrameLayout>

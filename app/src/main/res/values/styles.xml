@@ -46,4 +46,19 @@
         <item name="android:drawableTint">#757575</item>
     </style>
 
+    <style name="AppTheme.TextAppearance">
+    </style>
+
+    <style name="AppTheme.TextAppearance.TitleText">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/textColorTitle</item>
+    </style>
+
+    <style name="AppTheme.TextAppearance.NormalText">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
+    </style>
+
 </resources>
