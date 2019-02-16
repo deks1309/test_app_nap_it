@@ -10,7 +10,7 @@ public class ImageViewBindingAdapter {
   @BindingAdapter({"bind:src"})
   public static void configureImageView(ImageView imageView, String imageURL) {
     Picasso.get().load(imageURL)
-        .transform(new RoundedCornerTransformation(5))
+        .transform(new RoundedCornerTransformation(15))
         .into(imageView);
   }
 }
